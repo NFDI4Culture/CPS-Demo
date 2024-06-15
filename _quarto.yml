@@ -29,10 +29,7 @@ format:
     number-sections: false
     # Quarto allows a number of pre-packaged themes for the HTML version
     # You can choose between them using the documentation at https://quarto.org/docs/output-formats/html-themes.html
-    theme: 
-      light: minty
-      dark: slate
-      custom.scss
+    theme: slate, custom.scss
     code-fold: true
     code-overflow: wrap
   # options for PDF output 
@@ -41,7 +38,8 @@ format:
     documentclass: book
     papersize: a4
   docx: 
-    reference-doc: custom-reference-doc.docx
     toc: true
   epub: 
-    toc: true    
+    toc: true   
+    epub-cover-image: images/cover.jpg
+ 
