@@ -5,9 +5,9 @@ project:
 # Quarto options for books
 # https://quarto.org/docs/reference/projects/books.html
 book:
-  title: "Weikersheim, Residenzschloss"
-  author: "Team Redaktion"
-  date: "2024-03-22"
+  title: "Die barocken Schloss- und Gartenveduten"
+  author: "AR"
+  date: "2024-06-15"
   # this section determines which files will be added to the book as chapters
   chapters:
     - index.qmd
@@ -15,7 +15,7 @@ book:
   repo-url: https://github.com/calnfynn/section-notebook-AR
   repo-actions: [edit]
   downloads: [pdf,docx,epub]
-  cover-image: images/fmd10005860a.jpg
+  cover-image: images/fmd10005861a.jpg
 
 # Quarto allows commenting using either Hypothesis or Utterances
 # https://quarto.org/docs/reference/projects/books.html#comments
