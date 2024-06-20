@@ -1,7 +1,15 @@
 project:
   type: book
   output-dir: docs
-
+title: "Die barocken Schloss- und Gartenveduten"
+subtitle: "Ein Versuch eines PDF-Buchs"
+author: # repeat as often as needed
+  - name: Jane Doe
+    affiliations:
+      - name: Minnesota Department of Natural Resources
+        address: 500 Lafayette Road Saint Paul, MN 55155
+      - name: University of Minnesota
+        department: Department of Mathematics
 # Quarto options for books
 # https://quarto.org/docs/reference/projects/books.html
 book:
@@ -16,6 +24,7 @@ book:
   repo-actions: [edit]
   downloads: [pdf,docx,epub]
   cover-image: images/fmd10005861a.jpg
+  favicon: images/favicon.ico
 
 # Quarto allows commenting using either Hypothesis or Utterances
 # https://quarto.org/docs/reference/projects/books.html#comments
@@ -37,11 +46,29 @@ format:
   # options for PDF output 
   # https://quarto.org/docs/reference/formats/pdf.html
   pdf:
+    include-in-header: in-header.tex
+    geometry:
+      - top=25mm
+      - right=20mm
+      - bottom=25mm
+      - left=20mm
+      - heightrounded
+    number-sections: true
     documentclass: book
     papersize: a4
+    toc: true
+    toc-depth: 3
+    template: main.tex
+    #template-partials:
+     # - "before-body.tex"
+      #- "_titlepage.tex" 
+    title-bg-image: "images/cover.jpg"
+    title-bg-location: "UL"
+    title-bg-size: 1
   docx: 
     toc: true
   epub: 
     toc: true   
     epub-cover-image: images/cover.jpg
- 
+    code-fold: true
+    code-overflow: wrap
