@@ -6,6 +6,8 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{etoolbox}
+\usepackage{wallpaper} % for the background image on title page
+
 
 %% Set page size
 \geometry{a4paper, total={170mm,257mm}, left=25mm, top=20mm, bottom=20mm, right=25mm}
@@ -15,26 +17,28 @@
 \definecolor{highlight}{HTML}{800080}
 \definecolor{dark}{HTML}{330033}
 
-$if(graphics)$
-% We will generate all images so they have a width \maxwidth. This means
-% that they will get their normal width if they fit onto the page, but
-% are scaled down if they would overflow the margins.
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-\else\Gin@nat@width\fi}
-\makeatother
-\let\Oldincludegraphics\includegraphics
-\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
-$endif$
-
 
 \begin{document}
 
-$title.tex()$ 
-
 $before-body.tex()$
 
-$toc.tex()$
+$if(has-frontmatter)$
+  \begin{frontmatter}
+  \begin{titlepage}
+  $_titlepage.tex()$
+  
+  \end{titlepage}
+  \end{frontmatter}
+$else$
+  \begin{titlepage}
+  $_titlepage.tex()$
+  
+  \end{titlepage}
+$endif$
+
+%$_titlepage.tex()$
+
+$toc$
 
 $body$
 

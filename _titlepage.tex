@@ -1,6 +1,7 @@
 % This is a combination of Pandoc templating and LaTeX
 % Pandoc templating https://pandoc.org/MANUAL.html#templates
-% See the README for help
+% https://github.com/nmfs-opensci/quarto_titlepages_v1/tree/main
+
 
 $if(titlepage-geometry)$
 \newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
@@ -14,15 +15,17 @@ $if(title-bg-image)$
 $endif$
 
 % Title and subtitle
-{\huge\bfseries\nohyphens\noindent\fbox\parbox{\textwidth}{$title$}}\\[1\baselineskip] 
-$if(subtitle)${\large\noindent\fbox\parbox{\textwidth}{$subtitle$}}\\[4\baselineskip]$endif$
+\textcolor{white}{{\Huge\bfseries\nohyphens{$title$}}}\\[1\baselineskip]
+$if(subtitle)$
+\textcolor{white}{{\huge{$subtitle$}}}\\[4\baselineskip]
+$endif$
 	
-% Authors	
-% This hairy bit of code is just to get "and" between the last 2
-% authors. See below if you don't need that
+% Authors
+% This is how to do it if you don't need the "and"
+
 $if(by-author/allbutlast)$
 $for(by-author/allbutlast)$
- {\large{$by-author.name.literal$}}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
+{\large{$by-author.name.literal$}}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
 $if(by-author.email)$%
 $if(by-author.affiliations)$\textsuperscript{,}$endif$%
 {\textsuperscript{*}}%
@@ -51,11 +54,11 @@ $endfor$
 $endif$
 
 % This is how to do it if you don't need the "and"
-$if(false)$
-  $for(by-author)$
-    {$by-author.name.literal$}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}$endfor$$if(by-author.email)$,{\textsuperscript{*}}$endif$$sep$, 
-$endfor$
-$endif$
+%$if(false)$
+ % $for(by-author)$
+  %  {$by-author.name.literal$}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}$endfor$$if(by-author.email)$,{\textsuperscript{*}}$endif$$sep$, 
+%$endfor$
+%$endif$
 
 %%%%%% Affiliations
 \vspace{2\baselineskip} 
@@ -90,18 +93,16 @@ $endfor$
 \vfill
 
 %%%%%% Cover image
-$if(cover)$\includegraphics[width=4cm]{$cover$}$endif$
+$if(cover)$\includegraphics[width=\]{$cover$}$endif$
 
 % Whitespace between the title block and the tagline
 \vspace{1\baselineskip} 
 
 %%%%%% Tagline at bottom
-University Technical Series\newline
-Open Source Publication for All\newline
-Amtmandens Allé 15\newline
-6950 Rindum Ringkøbing-Skjern\newline
-DENMARK\newline
-December 2025
+\textcolor{white}{
+  TIB\newline
+  Open Science Lab\newline
+}
 
 \end{minipage}
 $if(titlepage-geometry)$

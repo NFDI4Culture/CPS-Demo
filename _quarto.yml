@@ -14,7 +14,6 @@ author: # repeat as often as needed
 # https://quarto.org/docs/reference/projects/books.html
 book:
   title: "Die barocken Schloss- und Gartenveduten"
-  author: "AR"
   date: "2024-06-15"
   # this section determines which files will be added to the book as chapters
   chapters:
@@ -46,22 +45,23 @@ format:
   # options for PDF output 
   # https://quarto.org/docs/reference/formats/pdf.html
   pdf:
-    include-in-header: in-header.tex
+    include-in-header: "in-header.tex"
     geometry:
-      - top=25mm
-      - right=20mm
-      - bottom=25mm
-      - left=20mm
+      - top=35mm
+      - right=25mm
+      - bottom=35mm
+      - left=25mm
       - heightrounded
+    fontsize: 11pt
     number-sections: true
     documentclass: book
     papersize: a4
     toc: true
     toc-depth: 3
-    template: main.tex
-    #template-partials:
-     # - "before-body.tex"
-      #- "_titlepage.tex" 
+    template-partials:
+      - "before-body.tex"
+      - "_titlepage.tex" 
+    #template: main.tex
     title-bg-image: "images/cover.jpg"
     title-bg-location: "UL"
     title-bg-size: 1
