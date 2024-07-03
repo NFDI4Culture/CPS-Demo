@@ -1,64 +1,82 @@
+%  SOURCE: https://github.com/nmfs-opensci/quarto_titlepages_v1/tree/main
+
 % This is a combination of Pandoc templating and LaTeX
 % Pandoc templating https://pandoc.org/MANUAL.html#templates
-% https://github.com/nmfs-opensci/quarto_titlepages_v1/tree/main
 
-
-$if(titlepage-geometry)$
-\newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
-$endif$
-\begin{minipage}[b][\textheight][s]{\textwidth}
-\raggedright
+\tcbset{
+    frame code={},
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!10!black,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=15pt,
+    arc=0pt,outer arc=0pt,
+    opacityback=0.35, % translucent background
+    before skip=0pt,
+    after skip=0pt,
+    fontupper=\color{white},
+    fontlower=\color{white}
+    }
 
 % background image
 $if(title-bg-image)$
-\This$if(title-bg-location)$$title-bg-location$$else$UL$endif$CornerWallPaper{$if(title-bg-size)$$title-bg-size$$else$0.5$endif$}{$title-bg-image$}
+  \This$if(title-bg-location)$$title-bg-location$$else$UL$endif$CornerWallPaper{$if(title-bg-size)$$title-bg-size$$else$0.5$endif$}{$title-bg-image$}
 $endif$
+
+\begin{tcolorbox}
+
+$if(titlepage-geometry)$
+  \newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
+$endif$
+
+\centering
 
 % Title and subtitle
-\textcolor{white}{{\Huge\bfseries\nohyphens{$title$}}}\\[1\baselineskip]
+{\Huge\bfseries\nohyphens{$title$}}\\[1\baselineskip]
 $if(subtitle)$
-\textcolor{white}{{\huge{$subtitle$}}}\\[4\baselineskip]
+  {\huge{$subtitle$}}\\[4\baselineskip]
 $endif$
-	
+
+\end{tcolorbox}
+
+\bigbreak
+
 % Authors
-% This is how to do it if you don't need the "and"
+\begin{tcolorbox}
 
 $if(by-author/allbutlast)$
-$for(by-author/allbutlast)$
-{\large{$by-author.name.literal$}}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
-$if(by-author.email)$%
-$if(by-author.affiliations)$\textsuperscript{,}$endif$%
-{\textsuperscript{*}}%
-$endif$%
-$sep$, 
-$endfor$
-$for(by-author/last)$%
-{ and \large{$by-author.name.literal$}}%
-$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}%
-$endfor$%
-$if(by-author.email)$%
-$if(by-author.affiliations)$\textsuperscript{,}$endif$%
-{\textsuperscript{*}}%
-$endif$%
-$endfor$
-$else$
-$for(by-author/last)$%
-{\large{$by-author.name.literal$}}%
-$for(by-author.affiliations)$%
-{\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
-$if(by-author.email)$%
-$if(by-author.affiliations)$\textsuperscript{,}$endif$%
-{\textsuperscript{,*}}%
+  $for(by-author/allbutlast)$
+    {\large{$by-author.name.literal$}}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
+  $if(by-author.email)$%
+  $if(by-author.affiliations)$\textsuperscript{,}$endif$%
+  {\textsuperscript{*}}%
+  $endif$%
+  $sep$, 
+  $endfor$
+  $for(by-author/last)$%
+    { and \large{$by-author.name.literal$}}%
+  $for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep$\textsuperscript{,}%
+  $endfor$%
+  $if(by-author.email)$%
+    $if(by-author.affiliations)$\textsuperscript{,}$endif$%
+    {\textsuperscript{*}}%
+  $endif$%
+  $endfor$
+  $else$
+  $for(by-author/last)$%
+    {\large{$by-author.name.literal$}}%
+    $for(by-author.affiliations)$%
+    {\textsuperscript{$it.number$}}$sep$\textsuperscript{,}$endfor$%
+  $if(by-author.email)$%
+    $if(by-author.affiliations)$\textsuperscript{,}$endif$%
+    {\textsuperscript{,*}}%
 $endif$%
 $endfor$
 $endif$
-
-% This is how to do it if you don't need the "and"
-%$if(false)$
- % $for(by-author)$
-  %  {$by-author.name.literal$}$for(by-author.affiliations)${\textsuperscript{$it.number$}}$sep${\textsuperscript{,}}$endfor$$if(by-author.email)$,{\textsuperscript{*}}$endif$$sep$, 
-%$endfor$
-%$endif$
 
 %%%%%% Affiliations
 \vspace{2\baselineskip} 
@@ -83,28 +101,30 @@ $endfor$
 
 $for(by-author)$
 $if(by-author.email)$
-* \textit{Correspondence:}~$by-author.name.literal$~$by-author.email$
+* \textit{Correspondence:}~$by-author.name.literal$~$by-author.email$\newline
 $endif$
 $endfor$
+
+\end{tcolorbox}
 
 %use \vfill instead to get the space to fill flexibly	
 %\vspace{0.25\textheight} % Whitespace between the title block and the publisher
 
 \vfill
 
-%%%%%% Cover image
-$if(cover)$\includegraphics[width=\]{$cover$}$endif$
-
 % Whitespace between the title block and the tagline
 \vspace{1\baselineskip} 
 
-%%%%%% Tagline at bottom
-\textcolor{white}{
-  TIB\newline
-  Open Science Lab\newline
-}
+\begin{tcolorbox}
+\centering
 
-\end{minipage}
+%%%%%% Tagline at bottom
+{
+  TIB\\
+  Open Science Lab
+}
+\end{tcolorbox}
+
 $if(titlepage-geometry)$
-\restoregeometry
+  \restoregeometry
 $endif$
