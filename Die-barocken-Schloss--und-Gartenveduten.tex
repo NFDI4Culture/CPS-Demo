@@ -174,26 +174,20 @@
   % This is a combination of Pandoc templating and LaTeX
   % Pandoc templating https://pandoc.org/MANUAL.html#templates
 
-  \tcbset{
+  \tcbset{ % parameters for text background 
       frame code={},
-      left=0pt,
+      left=0pt, % margins
       right=0pt,
       top=0pt,
       bottom=0pt,
-      colback=gray!10!black,
-      colframe=white,
-      width=\dimexpr\textwidth\relax,
-      enlarge left by=0mm,
-      boxsep=15pt,
-      arc=0pt,outer arc=0pt,
-      opacityback=0.35, % translucent background
-      before skip=0pt,
-      after skip=0pt,
-      fontupper=\color{white},
+      colback=gray!10!black, % box color
+      width=\dimexpr\textwidth\relax, 
+      boxsep=15pt, % spacing between boxes
+      arc=0pt, % no rounded edges
+      opacityback=0.35, % translucent-ish background
+      fontupper=\color{white}, % fontcolor
       fontlower=\color{white}
       }
-
-
 
   % background image
     \ThisULCornerWallPaper{1}{images/cover.jpg}
@@ -265,10 +259,11 @@
   %%%%%% Correspondence
   \vspace{1\baselineskip} 
 
-  * \textit{Correspondence:}~Jane Doe~jd@college.edu\\
-  * \textit{Correspondence:}~Maxine Mustermann~mm@um-mail.edu\\
+  * \textit{Correspondence:}~Jane Doe~jd@college.edu\newline
+  * \textit{Correspondence:}~Maxine Mustermann~mm@um-mail.edu\newline
 
   \end{tcolorbox}
+
 
   %use \vfill instead to get the space to fill flexibly	
   %\vspace{0.25\textheight} % Whitespace between the title block and the publisher
@@ -280,8 +275,8 @@
 
   \begin{tcolorbox}
   \centering
-    %%%%%% Tagline at bottom
 
+  %%%%%% Tagline at bottom
   {
     TIB\\
     Open Science Lab

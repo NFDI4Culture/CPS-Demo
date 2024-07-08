@@ -3,22 +3,18 @@
 % This is a combination of Pandoc templating and LaTeX
 % Pandoc templating https://pandoc.org/MANUAL.html#templates
 
-\tcbset{
+\tcbset{ % parameters for text background 
     frame code={},
-    left=0pt,
+    left=0pt, % margins
     right=0pt,
     top=0pt,
     bottom=0pt,
-    colback=gray!10!black,
-    colframe=white,
-    width=\dimexpr\textwidth\relax,
-    enlarge left by=0mm,
-    boxsep=15pt,
-    arc=0pt,outer arc=0pt,
-    opacityback=0.35, % translucent background
-    before skip=0pt,
-    after skip=0pt,
-    fontupper=\color{white},
+    colback=gray!10!black, % box color
+    width=\dimexpr\textwidth\relax, 
+    boxsep=15pt, % spacing between boxes
+    arc=0pt, % no rounded edges
+    opacityback=0.35, % translucent-ish background
+    fontupper=\color{white}, % fontcolor
     fontlower=\color{white}
     }
 
@@ -106,6 +102,15 @@ $endif$
 $endfor$
 
 \end{tcolorbox}
+
+$if(abstract)$
+\begin{tcolorbox}
+
+  \textbf{Abstract:\newline}
+  $abstract$
+
+\end{tcolorbox}
+$endif$
 
 %use \vfill instead to get the space to fill flexibly	
 %\vspace{0.25\textheight} % Whitespace between the title block and the publisher

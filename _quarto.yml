@@ -18,7 +18,6 @@ author: # repeat as often as needed
     affiliations: 
       - name: University of Somewhere
         department: Department of Marine Biology
-abstract: "This is an abstract. :)"
 
 # Quarto options for books
 # https://quarto.org/docs/reference/projects/books.html
@@ -56,7 +55,7 @@ format:
   # options for PDF output 
   # https://quarto.org/docs/reference/formats/pdf.html
   pdf:
-    keep-tex: true
+    #keep-tex: true
     include-in-header: "in-header.tex"
     pagestyle: plain # page numbers
     geometry: # margins
