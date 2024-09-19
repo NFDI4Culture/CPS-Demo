@@ -1,26 +1,29 @@
 project:
   type: book
   output-dir: docs
+title: "Weikersheim, Residenzschloss"
+subtitle: "Barocke Deckenmalerei in Deutschland"
+author: # repeat as often as needed
+  - name: Simon Worthington
+    affiliations:
+      - name: TIB - Leibniz Information Centre for Science and Technology and University Library
+        address: Welfengarten 1 B, 30167 Hannover.
+        email: simon.worthington@tib.eu
 
 # Quarto options for books
 # https://quarto.org/docs/reference/projects/books.html
 book:
   title: "Weikersheim, Residenzschloss"
-  author: "Team Redaktion"
-  date: "2024-03-22"
+  date: "2024-06-15"
   # this section determines which files will be added to the book as chapters
   chapters:
     - index.qmd
-    - impressum.ipynb
-    - text.ipynb
-    - paintings.ipynb
-    - datavis.ipynb
-    - rittersaal.ipynb
-    - painting-collection.ipynb
-  repo-url: https://github.com/NFDI4Culture/CPS-Demo
+    - section.ipynb
+  repo-url: https://github.com/NFDI4Culture/section-notebook
   repo-actions: [edit]
   downloads: [pdf,docx,epub]
-  cover-image: images/fmd10005860a.jpg
+  cover-image: images/fmd10005861a.jpg
+  favicon: images/favicon.ico
 
 # Quarto allows commenting using either Hypothesis or Utterances
 # https://quarto.org/docs/reference/projects/books.html#comments
@@ -32,14 +35,45 @@ format:
   # https://quarto.org/docs/reference/formats/html.html
   html:
     number-sections: false
+    # css: https://latex.vercel.app/style.css
     # Quarto allows a number of pre-packaged themes for the HTML version
     # You can choose between them using the documentation at https://quarto.org/docs/output-formats/html-themes.html
-    theme: simplex
+    theme:
+      light: [minty]
+      dark: [slate]
+    code-fold: true
+    code-overflow: wrap
   # options for PDF output 
   # https://quarto.org/docs/reference/formats/pdf.html
   pdf:
+    #keep-tex: true
+    include-in-header: "in-header.tex"
+    pagestyle: plain # page numbers
+    geometry: # margins
+      - top=35mm
+      - right=25mm
+      - bottom=35mm
+      - left=25mm
+      - heightrounded
     documentclass: book
+    classoption: openany 
+    fontsize: 11pt
+    number-sections: true
+    papersize: a4
+    toc: true
+    toc-title: Inhaltsverzeichnis
+    urlcolor: cyan
+    template-partials:
+      - "_titlepage.tex" 
+      - "before-body.tex"
+    title-bg-image: "images/cover.jpg"
+    title-bg-location: "UL"
+    title-bg-size: 1
   docx: 
     toc: true
   epub: 
-    toc: true    
+    css: epubstyle.css
+    toc: true   
+    epub-cover-image: images/cover.jpg
+    code-fold: true
+    code-overflow: wrap
