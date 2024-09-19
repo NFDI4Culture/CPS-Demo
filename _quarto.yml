@@ -1,21 +1,38 @@
 project:
   type: book
   output-dir: docs
+title: "Katalog zur Ausstellung: Die barocken Schloss- und Gartenveduten"
+subtitle: "Versuch eines PDF-Buchs"
+author: # repeat as often as needed
+  - name: Jane Doe
+    affiliations:
+      - name: Minnesota Department of Natural Resources
+        address: 500 Lafayette Road Saint Paul, MN 55155
+    email: jd@college.edu
+  - name: Maxine Mustermann
+    affiliations:
+      - name: University of Minnesota
+        department: Department of Mathematics
+    email: mm@um-mail.edu
+  - name: Neptune III.
+    affiliations: 
+      - name: University of Somewhere
+        department: Department of Marine Biology
 
 # Quarto options for books
 # https://quarto.org/docs/reference/projects/books.html
 book:
-  title: "Weikersheim, Residenzschloss"
-  author: "Team Redaktion"
-  date: "2024-03-22"
+  title: "Die barocken Schloss- und Gartenveduten"
+  date: "2024-06-15"
   # this section determines which files will be added to the book as chapters
   chapters:
     - index.qmd
     - section.ipynb
-  repo-url: https://github.com/NFDI4Culture/section-notebook
+  repo-url: https://github.com/calnfynn/section-notebook-AR
   repo-actions: [edit]
   downloads: [pdf,docx,epub]
-  cover-image: images/fmd10005860a.jpg
+  cover-image: images/fmd10005861a.jpg
+  favicon: images/favicon.ico
 
 # Quarto allows commenting using either Hypothesis or Utterances
 # https://quarto.org/docs/reference/projects/books.html#comments
@@ -27,16 +44,45 @@ format:
   # https://quarto.org/docs/reference/formats/html.html
   html:
     number-sections: false
+    # css: https://latex.vercel.app/style.css
     # Quarto allows a number of pre-packaged themes for the HTML version
     # You can choose between them using the documentation at https://quarto.org/docs/output-formats/html-themes.html
-    theme: 
-      simplex
-      custom.scss
+    theme:
+      dark: [slate]
+      light: [minty]
+    code-fold: true
+    code-overflow: wrap
   # options for PDF output 
   # https://quarto.org/docs/reference/formats/pdf.html
   pdf:
+    #keep-tex: true
+    include-in-header: "in-header.tex"
+    pagestyle: plain # page numbers
+    geometry: # margins
+      - top=35mm
+      - right=25mm
+      - bottom=35mm
+      - left=25mm
+      - heightrounded
     documentclass: book
+    classoption: openany 
+    fontsize: 11pt
+    number-sections: true
+    papersize: a4
+    toc: true
+    toc-title: Inhaltsverzeichnis
+    urlcolor: cyan
+    template-partials:
+      - "_titlepage.tex" 
+      - "before-body.tex"
+    title-bg-image: "images/cover.jpg"
+    title-bg-location: "UL"
+    title-bg-size: 1
   docx: 
     toc: true
   epub: 
-    toc: true    
+    css: epubstyle.css
+    toc: true   
+    epub-cover-image: images/cover.jpg
+    code-fold: true
+    code-overflow: wrap
