@@ -1,8 +1,8 @@
 project:
   type: book
   output-dir: docs
-title: "Weikersheim Residenzschloss"
-subtitle: "Barocke Deckenmalerei in Deutschland"
+title: "Weikersheim, Residenzschloss"
+subtitle: "Aus der Sammlung: Barocke Deckenmalerei in Deutschland"
 author: # repeat as often as needed
   - name: Simon Worthington
     affiliations:
@@ -13,7 +13,7 @@ author: # repeat as often as needed
 # Quarto options for books
 # https://quarto.org/docs/reference/projects/books.html
 book:
-  title: "Weikersheim Residenzschloss"
+  title: "Weikersheim, Residenzschloss"
   date: "2024-06-15"
   # this section determines which files will be added to the book as chapters
   chapters:
