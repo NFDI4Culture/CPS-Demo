@@ -1,34 +1,25 @@
 project:
   type: book
   output-dir: docs
-title: "Katalog zur Ausstellung: Die barocken Schloss- und Gartenveduten"
-subtitle: "Versuch eines PDF-Buchs"
+title: "Weikersheim, Residenzschloss"
+subtitle: "Barocke Deckenmalerei in Deutschland"
 author: # repeat as often as needed
-  - name: Jane Doe
+  - name: Simon Worthington
     affiliations:
-      - name: Minnesota Department of Natural Resources
-        address: 500 Lafayette Road Saint Paul, MN 55155
-    email: jd@college.edu
-  - name: Maxine Mustermann
-    affiliations:
-      - name: University of Minnesota
-        department: Department of Mathematics
-    email: mm@um-mail.edu
-  - name: Neptune III.
-    affiliations: 
-      - name: University of Somewhere
-        department: Department of Marine Biology
+      - name: TIB - Leibniz Information Centre for Science and Technology and University Library
+        address: Welfengarten 1 B, 30167 Hannover.
+        email: simon.worthington@tib.eu
 
 # Quarto options for books
 # https://quarto.org/docs/reference/projects/books.html
 book:
-  title: "Die barocken Schloss- und Gartenveduten"
+  title: "Weikersheim, Residenzschloss"
   date: "2024-06-15"
   # this section determines which files will be added to the book as chapters
   chapters:
     - index.qmd
     - section.ipynb
-  repo-url: https://github.com/calnfynn/section-notebook-AR
+  repo-url: https://github.com/NFDI4Culture/section-notebook
   repo-actions: [edit]
   downloads: [pdf,docx,epub]
   cover-image: images/fmd10005861a.jpg
@@ -48,8 +39,8 @@ format:
     # Quarto allows a number of pre-packaged themes for the HTML version
     # You can choose between them using the documentation at https://quarto.org/docs/output-formats/html-themes.html
     theme:
-      dark: [slate]
       light: [minty]
+      dark: [slate]
     code-fold: true
     code-overflow: wrap
   # options for PDF output 
