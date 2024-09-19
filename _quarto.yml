@@ -1,7 +1,7 @@
 project:
   type: book
   output-dir: docs
-title: "Weikersheim, Residenzschloss"
+title: "Weikersheim Residenzschloss"
 subtitle: "Barocke Deckenmalerei in Deutschland"
 author: # repeat as often as needed
   - name: Simon Worthington
@@ -13,13 +13,13 @@ author: # repeat as often as needed
 # Quarto options for books
 # https://quarto.org/docs/reference/projects/books.html
 book:
-  title: "Weikersheim, Residenzschloss"
+  title: "Weikersheim Residenzschloss"
   date: "2024-06-15"
   # this section determines which files will be added to the book as chapters
   chapters:
     - index.qmd
     - section.ipynb
-  repo-url: https://github.com/NFDI4Culture/section-notebook
+  repo-url: https://github.com/NFDI4Culture/CPS-Demo
   repo-actions: [edit]
   downloads: [pdf,docx,epub]
   cover-image: images/fmd10005861a.jpg
